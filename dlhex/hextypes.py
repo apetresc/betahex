@@ -1,7 +1,6 @@
 from __future__ import annotations
-from collections import namedtuple
 import enum
-from typing import List
+from typing import List, NamedTuple
 
 class Player(enum.Enum):
     """A player in a game of Hex."""
@@ -13,7 +12,9 @@ class Player(enum.Enum):
         return Player.black if self == Player.white else Player.white
     
 
-class Point(namedtuple('Point', ['r', 'q'])):
+class Point(NamedTuple):
+    r: int
+    q: int
     """A point on a hexagonal board, using the axial coordinate system.
     
     The details of this coordinate system are described in the following
