@@ -1,3 +1,4 @@
+from rich import print
 from typing import List
 
 from .hextypes import Player, Point
@@ -5,9 +6,9 @@ from .hexboard import Board, Move, Play, Resign
 
 COLS = 'ABCDEFGHJKLMNOPQRST'
 STONE_TO_CHAR = {
-    None: '.',
-    Player.black: '#',
-    Player.white: 'O'
+    None: '[dim yellow]·[/dim yellow]',
+    Player.black: '[bold black]#[/bold black]',
+    Player.white: '[bold white]O[/bold white]'
 }
 
 def print_move(player: Player, move: Move):
