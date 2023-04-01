@@ -24,6 +24,12 @@ def point_to_coords(point: Point) -> str:
     """Converts a point to a two-character string, like 'B3'."""
     return f'{COLS[point.r - 1]}{point.q}'
 
+def point_from_coords(coords: str) -> Point:
+    """Converts a two-character string, like 'B3', to a point."""
+    col = COLS.index(coords[0].upper()) + 1
+    row = int(coords[1:])
+    return Point(col, row)
+
 def print_board(board: Board) -> None:
     """Prints the board."""
     for row in range(board.n, 0, -1):
