@@ -35,10 +35,17 @@ def print_board(board: Board) -> None:
 
 def print_diamond_board(board: Board) -> None:
     """Prints the board in a diamond (rather than rectangular) configuration."""
-    for row in [*range(board.n, 0, -1), *range(2, board.n + 1)]:
+    for row in range(board.n, 0, -1):
         bump = '   ' * (row - 1)
         print(bump, end='')
         for r, q in zip(range(row, board.n + 1), range(1, board.n + 1)):
+            stone = board.get(Point(r, q))
+            print(f'  {STONE_TO_CHAR[stone]}   ', end='')
+        print(bump)
+    for row in range(2, board.n + 1):
+        bump = '   ' * (row - 1)
+        print(bump, end='')
+        for r, q in zip(range(1, board.n + 1), range(row, board.n + 1)):
             stone = board.get(Point(r, q))
             print(f'  {STONE_TO_CHAR[stone]}   ', end='')
         print(bump)

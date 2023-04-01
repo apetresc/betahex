@@ -76,6 +76,8 @@ class Board():
 
         for same_color_string in adjacent_same_color:
             new_string = new_string.merged_with(same_color_string)
+        for new_string_point in new_string.stones:
+            self._grid[new_string_point] = new_string
         return new_string
 
 class GameState():
