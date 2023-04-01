@@ -32,3 +32,13 @@ def print_board(board: Board) -> None:
             stone = board.get(Point(row, col))
             line.append(STONE_TO_CHAR[stone])
         print(f'{row:02}{bump} {" ".join(line)}')
+
+def print_diamond_board(board: Board) -> None:
+    """Prints the board in a diamond (rather than rectangular) configuration."""
+    for row in [*range(board.n, 0, -1), *range(2, board.n + 1)]:
+        bump = '   ' * (row - 1)
+        print(bump, end='')
+        for r, q in zip(range(row, board.n + 1), range(1, board.n + 1)):
+            stone = board.get(Point(r, q))
+            print(f'  {STONE_TO_CHAR[stone]}   ', end='')
+        print(bump)
